@@ -1,1 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
+app-root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  color: #F5f5f5;
+}
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* 
+  Formula for scaling:
+  1 + (translateZ * -1) / perspective 
+*/
+.parallax__layer--base {
+  transform: translateZ(0) scale(1);
+}
+.parallax__layer--back {
+  transform: translateZ(-2px) scale(3.03);
+}
+
+.custom-background {
+  min-height: 300vh;
+  width: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #1d1d1d 0,
+    #1d1d1d 100px,
+    #2d2d2d 100px,
+    #2d2d2d 200px,
+    #3d3d3d 200px,
+    #3d3d3d 300px,
+    #2d2d2d 300px,
+    #2d2d2d 400px
+  );
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 700;
+}

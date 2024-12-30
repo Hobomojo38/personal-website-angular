@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>Max Zimmermann</title>
-  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <app-root></app-root>
+  <div class="parallax">
+    <div class="parallax__layer parallax__layer--back">
+      <div class="custom-background"></div>
+    </div>
+    <div class="parallax__layer parallax__layer--base">
+      <app-root></app-root>
+    </div>
+  </div>
 </body>
 </html>
