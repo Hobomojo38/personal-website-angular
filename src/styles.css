@@ -7,14 +7,31 @@ app-root {
   display: flex;
   height: 100%;
   width: 100%;
-  color: #F5f5f5;
+  background-color: #1d1d1d;
+  @apply w-screen;
+  @apply text-white;
 }
 
+div {
+  display: flex;
+}
+
+/*
+  Parallax method is borrowed (stolen) from here:
+  https://keithclark.co.uk/articles/pure-css-parallax-websites/
+  */
 .parallax {
-  perspective: 1px;
+  perspective: 300px;
   height: 100vh;
+  display: block;
   overflow-x: hidden;
   overflow-y: auto;
+}
+.parallax__group {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.5s ease-in-out;
+  /* transform: translate3d(700px, 0, -800px) rotateY(30deg); */
 }
 .parallax__layer {
   position: absolute;
@@ -23,34 +40,67 @@ app-root {
   bottom: 0;
   left: 0;
 }
+
 /* 
   Formula for scaling:
   1 + (translateZ * -1) / perspective 
-*/
+  */
+.parallax__layer--front {
+  transform: translateZ(70px) scale(0.7);
+}
 .parallax__layer--base {
   transform: translateZ(0) scale(1);
 }
 .parallax__layer--back {
-  transform: translateZ(-2px) scale(3.03);
+  transform: translateZ(-300px) scale(2);
+}
+.parallax__layer--background {
+  transform: translateZ(-600px) translateY(-100vh) scale(3.03);
+  /* The .03 avoids a small white bar on the side */
+}
+
+.sideView .parallax__group {
+  transform: translate3d(700px, 0, -800px) rotateY(20deg);
+  transition: 0.5s ease-in-out;
 }
 
 .custom-background {
-  min-height: 300vh;
-  width: 100%;
+  min-height: 400vh;
+  min-width: 100vw;
   background: repeating-linear-gradient(
     45deg,
     #1d1d1d 0,
-    #1d1d1d 100px,
-    #2d2d2d 100px,
-    #2d2d2d 200px,
-    #3d3d3d 200px,
-    #3d3d3d 300px,
+    #1d1d1d 150px,
+    #2d2d2d 150px,
     #2d2d2d 300px,
-    #2d2d2d 400px
+    #3d3d3d 300px,
+    #3d3d3d 450px,
+    #2d2d2d 450px,
+    #2d2d2d 600px
   );
+}
+
+title {
+  font-size: 5rem;
+  font-weight: 700;
 }
 
 h1 {
   font-size: 5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.5rem;
   font-weight: 700;
 }
