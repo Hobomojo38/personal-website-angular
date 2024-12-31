@@ -1,23 +1,32 @@
 .toggle-parallax-btn {
-    position: fixed;
-    top: -5px;
-    right: 2rem;
-    z-index: 1000;
-    cursor: pointer;
-    transition: 0.1s ease-in-out;
+  position: fixed;
+  top: -5px;
+  right: 2rem;
+  z-index: 1000;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
 }
 
 .toggle-parallax-btn:hover {
-    transform: scale(1.1);
-    transition: 0.1s ease-in-out;
+  transform: scale(1.1);
+  transition: 0.1s ease-in-out;
 }
 
-.no-parallax{
-    z-index: 1000;
+.no-parallax {
+  z-index: 1000;
+}
+
+.no-move {
+  position: fixed;
 }
 
 .instagram:hover {
-    color: #f09433;
-    size: 30rem;
-    background: linear-gradient(90deg, rgb(252, 176, 69) 0%, rgb(253, 29, 29) 0%, rgb(131, 58, 180) 100%)
+  color: #f09433;
+  size: 30rem;
+  background: linear-gradient(
+    90deg,
+    rgb(252, 176, 69) 0%,
+    rgb(253, 29, 29) 0%,
+    rgb(131, 58, 180) 100%
+  );
 }
