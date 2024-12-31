@@ -4,6 +4,11 @@ module.exports = {
   theme: {
     colors: {
       white: "#fafafa",
+      instagram: {
+        100: "#fcb045",
+        200: "#fd1d1d",
+        300: "#833ab4",
+      },
       black: {
         50: "#f6f6f6",
         100: "#e7e7e7",

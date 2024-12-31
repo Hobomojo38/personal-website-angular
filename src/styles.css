@@ -22,6 +22,8 @@ div {
   */
 .parallax {
   perspective: 300px;
+  perspective-origin: 50% 50%;
+  transform-origin: center;
   height: 100vh;
   display: block;
   overflow-x: hidden;
@@ -60,7 +62,7 @@ div {
 }
 
 .sideView .parallax__group {
-  transform: translate3d(700px, 0, -800px) rotateY(20deg);
+  transform: rotateY(20deg) translate3d(700px, 0, -800px);
   transition: 0.5s ease-in-out;
 }
 
