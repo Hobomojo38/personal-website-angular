@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { AppComponent } from '../app.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -8,13 +10,11 @@ import { Component, HostListener } from '@angular/core';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  constructor() { }
-
-  public val = 14;
-
-  @HostListener('document:scroll', ['$event']) // for window scroll events
-  onScroll($event: Event) {
-    console.log("scrolling");
+  constructor(private appComponent: AppComponent) { 
   }
+
+  // public temp() {
+  //   this.appComponent.toggleSocialBar();
+  // }
 
 }

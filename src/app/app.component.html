@@ -11,6 +11,10 @@
     Toggle Parallax
 </button>
 
+@if (showSocialBar) {
+    <app-social-sidebar class="on-top"/>
+}
+
 <div class="parallax"
 [ngClass]="{'sideView': viewSideParallax}">
     <div class="parallax__group">
