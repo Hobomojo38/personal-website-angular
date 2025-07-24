@@ -1,0 +1,41 @@
+<div class="flex flex-col w-screen min-h-screen justify-center items-center bg-black-900">
+  <!-- Header Section -->
+  <div class="flex flex-col justify-center items-left bg-black-950 w-screen px-10 pt-4">
+      <div class="flex font-major-mono-display flex-col justify-center items-left -space-y-8 pb-2 text-black-300">
+          <div class="text-4xl font-bold text-black-200" onClick="window.location.href='/'">Max ZimmErmAnn Has a BloG</div>
+      </div>
+      
+  </div>
+  <div class="flex-col w-screen">
+    <span class="header-bar bg-olive-900"></span>
+    <span class="header-bar bg-olive-700"></span>
+    <span class="header-bar bg-olive-600"></span>
+  </div>
+
+  @if (articleContent) {
+    <div class="flex flex-col justify-center items-left pt-12 w-[50%] font-google-sans-code">
+      <div class="text-6xl font-semi-bold transition duration-1000 ease-in-out pb-2 text-wrap" 
+        [class.opacity-0]="!title" 
+        [class.opacity-100]="title" 
+        [class.translate-x-16]="!title"
+        [class.translate-x-0]="title">
+          {{ title }}
+    </div>
+      <div class="text-2xl transition duration-1000 ease-in-out delay-300 text-black-300 italic self-end font-light" 
+        [class.opacity-0]="!date" 
+        [class.opacity-100]="date" 
+        [class.translate-x-16]="!date" 
+        [class.translate-x-0]="date">
+          {{ date }}
+      </div>
+    </div>
+
+    <div [innerHTML]="articleContent" class="font-playfair self-center text-black-50 transition duration-1000 ease-in-out"
+      [class.opacity-0]="!articleContent"
+      [class.opacity-100]="articleContent"
+      [class.translate-x-16]="!articleContent"
+      [class.translate-x-0]="articleContent"></div>
+  } @else {
+    <p>Loading article...</p>
+  }
+</div>

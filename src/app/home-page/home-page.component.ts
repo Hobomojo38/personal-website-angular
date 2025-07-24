@@ -17,4 +17,10 @@ export class HomePageComponent {
   //   this.appComponent.toggleSocialBar();
   // }
 
+  // public viewSideParallax = false;
+
+  // toggleSideParallax() {
+  //   this.viewSideParallax = !this.viewSideParallax;
+  // }
+
 }

@@ -13,12 +13,10 @@ import { SocialSidebarComponent } from './social-sidebar/social-sidebar.componen
 export class AppComponent {
   title = 'personal-website';
 
-  public viewSideParallax = false;
+  
   public showSocialBar = true;
 
-  toggleSideParallax() {
-    this.viewSideParallax = !this.viewSideParallax;
-  }
+  
 
   toggleSocialBar() {
     this.showSocialBar = !this.showSocialBar;

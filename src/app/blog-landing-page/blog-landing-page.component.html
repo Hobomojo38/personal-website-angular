@@ -1,31 +1,47 @@
 <!-- Blog Landing card -->
-<div class="flex-col justify-evenly items-center w-screen h-screen">
-    <div class="flex-col justify-center items-center">
-        <title class="flex">Max's Blog</title>
-        <p class="text-3xl font-bold flex text-olive-600">Projects, Opinions, or Anything I Just Feel Like Writing About</p>
-    </div>
-    
-    <div class="flex justify-center items-center bg-black-900 rounded-2xl max-w-full p-8">
-        <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-            <p> This is the latest post</p>
+<div class="bg-black-900 flex flex-col min-h-screen min-w-screen">
+
+    <!-- Header Section -->
+    <div class="flex flex-col justify-center items-left bg-black-950 w-screen p-10 pb-6">
+        <div class="flex font-major-mono-display flex-col justify-center items-left -space-y-8 pb-2 text-black-300">
+            <h1 class="text-black-100">Max ZimmErmAnn</h1>
+            <h3 class="ml-8">Has a </h3>
+            <h2 class="ml-44 pt-2">BloG</h2>
         </div>
-        <div class="flex-col justify-start items-center bg-black-900 min-w-96 min-h-92 rounded-2xl p-12">
-            <p>These are the next 3 latest posts</p>
-            <div class="flex-col space-y-4">
-                <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-                    <p>Post 1</p>
-                </div>
-                <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-                    <p>Post 2</p>
-                </div>
-                <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-                    <p>Post 3</p>
+        <div class="flex-col justify-center items-left">
+            <p class="text-2xl font-google-sans-code font-light text-olive-600 ml-16">Essays, Opinions, or Anything Else I Feel Like Writing About</p>
+        </div>
+    </div>
+
+    <!-- Blog Content Section -->
+    <div class="flex-col justify-center mx-auto max-w-[75%]">
+
+        <!-- Highlight card -->
+        <div class="flex justify-center items-center p-8">
+
+            <!-- Latest Post -->
+            <app-example-card class="max-w-[50%] max-h-72"/>
+
+            <!-- Additional Posts -->
+            <div class="flex-col justify-start items-center min-w-96 min-h-92 p-12">
+                <p>These are the next 3 latest posts</p>
+                <p class="font-google-sans-code">This test is written in Google Sans Code by Max Zimmermann</p>
+                <p class="font-major-mono-display">This text is written in Major Mono Display</p>
+                <p class="font-playfair">This text is written in Playfair</p>
+                <div class="flex-col space-y-4">
+                    <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
+                        <p>Post 1</p>
+                    </div>
+                    <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
+                        <p>Post 2</p>
+                    </div>
+                    <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
+                        <p>Post 3</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
+            
     </div>
-        
 </div>
-
     <!-- Blog Posts -->

@@ -49,7 +49,13 @@ module.exports = {
         950: "#1d272f",
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        "google-sans-code": ["Google Sans Code", "sans-serif"],
+        "major-mono-display": ["Major Mono Display", "monospace"],
+        playfair: ["Playfair", "serif"],
+      },
+    },
   },
   plugins: [],
 };

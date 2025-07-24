@@ -1,4 +1,4 @@
-<!-- Could put a top nav-bar here -->
+<!-- Could put a top nav-bar here
 <button class="toggle-parallax-btn 
     bg-black-900 
     border-2 
@@ -9,21 +9,11 @@
     "
     (click)="toggleSideParallax()">
     Toggle Parallax
-</button>
+</button> -->
 
 @if (showSocialBar) {
     <app-social-sidebar class="on-top"/>
 }
 
-<div class="parallax"
-[ngClass]="{'sideView': viewSideParallax}">
-    <div class="parallax__group">
-        <div class="parallax__layer parallax__layer--background">
-            <div class="custom-background"></div>
-        </div>
-    </div>
-    <div class="parallax__group">
-        <router-outlet />
-    </div>
-</div>
+<router-outlet />
 
