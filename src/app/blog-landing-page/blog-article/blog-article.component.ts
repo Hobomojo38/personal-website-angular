@@ -20,7 +20,7 @@ export class BlogArticleComponent {
       this.articleId = params.get('id');
       if (this.articleId) {
         // Fetch the article content based on the articleId
-        this.http.get(`/Blog Articles/${this.articleId}.html`, { responseType: 'text' })
+        this.http.get(`/articles/${this.articleId}.html`, { responseType: 'text' })
           .subscribe(content => {
             this.articleContent = content;
           });

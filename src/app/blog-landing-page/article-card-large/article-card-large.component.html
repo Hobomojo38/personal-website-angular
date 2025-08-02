@@ -1,0 +1,17 @@
+<div class="bg-black-800 rounded-3xl p-4 
+    flex-col border-2 border-black-950 border-opacity-50
+    hover:bg-black-700 transition duration-200"
+    (click)="navigateToArticle()">
+    <h1 class="text-4xl font-google-sans-code 
+        font-bold px-2 pt-2 hover:text-olive-400 
+        transition duration-200">
+        {{ title }}
+    </h1>
+    <p class="font-google-sans-code text-lg text-black-300 font-thin italic self-end">
+        {{ date }}
+    </p>
+    <div class="border-t-2 border-black-950 border-opacity-25 pt-2"></div>
+    <p class="font-playfair text-xl">
+        {{ blurb }}
+    </p>
+</div>

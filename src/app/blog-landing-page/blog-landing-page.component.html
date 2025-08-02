@@ -1,4 +1,3 @@
-<!-- Blog Landing card -->
 <div class="bg-black-900 flex flex-col min-h-screen min-w-screen">
 
     <!-- Header Section -->
@@ -20,27 +19,27 @@
         <div class="flex justify-center items-center p-8">
 
             <!-- Latest Post -->
-            <app-example-card class="max-w-[50%] max-h-72"/>
+            <app-article-card-large class="max-w-[50%] max-h-72"
+                [article]="articles[0]"/>
 
             <!-- Additional Posts -->
-            <div class="flex-col justify-start items-center min-w-96 min-h-92 p-12">
-                <p>These are the next 3 latest posts</p>
-                <p class="font-google-sans-code">This test is written in Google Sans Code by Max Zimmermann</p>
-                <p class="font-major-mono-display">This text is written in Major Mono Display</p>
-                <p class="font-playfair">This text is written in Playfair</p>
-                <div class="flex-col space-y-4">
-                    <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-                        <p>Post 1</p>
-                    </div>
-                    <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-                        <p>Post 2</p>
-                    </div>
-                    <div class="bg-black-100 min-w-96 min-h-92 rounded-2xl p-4">
-                        <p>Post 3</p>
-                    </div>
+            <div class="flex-col justify-start items-center min-w-[50%] min-h-92 p-12">
+                <div class="flex-col space-y-4 min-w-full]">
+                    @for (article of articles.slice(1, 4); track article) {
+                        <app-article-card-small class="min-w-full" [article]="article"/>
+                    }
                 </div>
             </div>
         </div>
+
+        <!-- Blog Posts -->
+        <div class="flex flex-col justify-center items-center space-y-8 p-8">
+            <h1 class="text-4xl font-google-sans-code font-bold text-black-100">Recent Posts</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @for (article of articles.slice(3); track article) {
+                <app-article-card [article]="article"/>
+            }
+            </div>
             
     </div>
 </div>
