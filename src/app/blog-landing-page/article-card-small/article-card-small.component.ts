@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-article-card-small',
@@ -14,7 +15,9 @@ export class ArticleCardSmallComponent {
     blurb = '';
     image = '';
     link = '';
-    
+
+    constructor(private router: Router) {}
+
     ngOnInit() {
       this.title = this.article?.title;
       this.date = this.article?.date;
@@ -25,6 +28,6 @@ export class ArticleCardSmallComponent {
     }
   
     navigateToArticle() {
-      window.location.href = "blog/" + this.link;
+      this.router.navigate(['/blog', this.link]);
     }
 }

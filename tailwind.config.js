@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  plugins: [require("@tailwindcss/line-clamp")],
   content: ["./src/**/*.{html,ts}"],
   theme: {
     colors: {
@@ -54,6 +55,12 @@ module.exports = {
         "google-sans-code": ["Google Sans Code", "sans-serif"],
         "major-mono-display": ["Major Mono Display", "monospace"],
         playfair: ["Playfair", "serif"],
+      },
+      lineClamp: {
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10",
       },
     },
   },

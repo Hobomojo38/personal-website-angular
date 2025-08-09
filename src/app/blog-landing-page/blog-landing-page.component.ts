@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener  } from '@angular/core';
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { HttpClient } from '@angular/common/http';
+
 import { ArticleCardLargeComponent } from './article-card-large/article-card-large.component';
 import { ArticleCardSmallComponent } from './article-card-small/article-card-small.component';
 
@@ -13,20 +14,29 @@ import { ArticleCardSmallComponent } from './article-card-small/article-card-sma
 })
 export class BlogLandingPageComponent {
 
-  backgroundLength = 100;
-
-  constructor(private http: HttpClient) { }
-
+  screenHeight: number;
+  screenWidth: number;
   articles: any[] = [];
+
+  constructor(private http: HttpClient) { 
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+  }
 
   ngOnInit() {
     // Any additional initialization logic can go here
     this.http.get<any[]>('/articles/index.json').subscribe(files => {
       this.articles.push(...files);
-      for (const article of this.articles) {
-        console.log(article);
-      }
+      //console.log('Articles loaded:', this.articles[0]);
     });
+    
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(_event: any) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+    //console.log(`Screen resized: ${this.screenWidth}x${this.screenHeight}`);
   }
 
 }

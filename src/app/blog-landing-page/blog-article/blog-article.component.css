@@ -30,10 +30,17 @@ article {
 }
 
 p {
-    font-size: 1.3rem;
-    line-height: 1.5;
-    margin-bottom: 1.2rem;
-    font-weight: light;
+    margin-bottom: 2rem;
+    font-weight: 100;
+}
+
+.small-font p {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.normal-font p {
+  font-size: 1.3rem;
+  line-height: 2rem;
 }
 
 h1, h2, h3 {

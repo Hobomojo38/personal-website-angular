@@ -1,46 +1,65 @@
 <div class="bg-black-900 flex flex-col min-h-screen min-w-screen">
+  <!-- Header Section -->
+  <div
+    class="flex flex-col justify-center items-left bg-black-950 min-w-screen p-6 md:p-10 pb-2 md:pb-6"
+  >
+    <div
+      class="flex flex-col font-major-mono-display justify-center items-start -space-y-2 pb-2 text-black-300"
+    >
+      <h1 class="text-4xl md:text-7xl text-black-100 font-bold">
+        Max ZimmErmAnn
+      </h1>
+      <h3 class="ml-2 md:ml-8 pt-1 md:pt-0 text-lg md:text-xl">Has a</h3>
+      <h2 class="ml-20 md:ml-44 md:pt-2 text-3xl">BloG</h2>
+    </div>
+    <div class="flex-col justify-center items-left">
+      <p
+        class="text-sm md:text-2xl font-google-sans-code font-light text-olive-600 ml-3 md:ml-16"
+      >
+        Essays, Opinions, or Anything Else I Feel Like Writing About
+      </p>
+    </div>
+  </div>
 
-    <!-- Header Section -->
-    <div class="flex flex-col justify-center items-left bg-black-950 w-screen p-10 pb-6">
-        <div class="flex font-major-mono-display flex-col justify-center items-left -space-y-8 pb-2 text-black-300">
-            <h1 class="text-black-100">Max ZimmErmAnn</h1>
-            <h3 class="ml-8">Has a </h3>
-            <h2 class="ml-44 pt-2">BloG</h2>
+  @if (articles.length > 0) {
+  <!-- Blog Content Section -->
+  <div class="flex-col justify-center mx-auto max-w-[90%] md:max-w-[75%]">
+    <!-- Highlight card -->
+    <div
+      class="flex justify-center items-center p-8"
+      [class]="{ 'flex-col': screenWidth < 768 }"
+    >
+      <!-- Latest Post -->
+      <app-article-card-large
+        class="justify-self-center"
+        [article]="articles[0]"
+      />
+
+      <!-- Additional Posts -->
+      <div
+        class="flex-col justify-start items-center min-h-92 p-4 md:p-12 md:max-w-[50%]"
+      >
+        <div class="flex-col space-y-2 md:space-y-4">
+          @for (article of articles.slice(1, 4); track article) {
+          <app-article-card-small [article]="article" />
+          }
         </div>
-        <div class="flex-col justify-center items-left">
-            <p class="text-2xl font-google-sans-code font-light text-olive-600 ml-16">Essays, Opinions, or Anything Else I Feel Like Writing About</p>
-        </div>
+      </div>
     </div>
 
-    <!-- Blog Content Section -->
-    <div class="flex-col justify-center mx-auto max-w-[75%]">
-
-        <!-- Highlight card -->
-        <div class="flex justify-center items-center p-8">
-
-            <!-- Latest Post -->
-            <app-article-card-large class="max-w-[50%] max-h-72"
-                [article]="articles[0]"/>
-
-            <!-- Additional Posts -->
-            <div class="flex-col justify-start items-center min-w-[50%] min-h-92 p-12">
-                <div class="flex-col space-y-4 min-w-full]">
-                    @for (article of articles.slice(1, 4); track article) {
-                        <app-article-card-small class="min-w-full" [article]="article"/>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <!-- Blog Posts -->
-        <div class="flex flex-col justify-center items-center space-y-8 p-8">
-            <h1 class="text-4xl font-google-sans-code font-bold text-black-100">Recent Posts</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @for (article of articles.slice(3); track article) {
-                <app-article-card [article]="article"/>
-            }
-            </div>
-            
-    </div>
-</div>
     <!-- Blog Posts -->
+    <div
+      class="flex flex-col justify-center items-center space-y-8 p-8 border-t-2 border-olive-600"
+    >
+      <h1 class="text-4xl font-google-sans-code font-bold text-black-100">
+        Recent Posts
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for (article of articles.slice(4); track article) {
+        <app-article-card [article]="article" />
+        }
+      </div>
+    </div>
+  </div>
+  }
+</div>
