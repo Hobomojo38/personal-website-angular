@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-blog-article',
   imports: [RouterLink],
   templateUrl: './blog-article.component.html',
-  styleUrl: './blog-article.component.css'
+  styleUrls: ['./blog-article.component.css']
 })
 export class BlogArticleComponent {
   // Read article id from the URL
