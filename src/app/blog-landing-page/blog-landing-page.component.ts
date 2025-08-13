@@ -32,11 +32,4 @@ export class BlogLandingPageComponent {
     
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(_event: any) {
-    this.screenHeight = window.innerHeight;
-    this.screenWidth = window.innerWidth;
-    //console.log(`Screen resized: ${this.screenWidth}x${this.screenHeight}`);
-  }
-
 }

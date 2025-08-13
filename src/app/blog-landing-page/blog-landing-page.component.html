@@ -25,10 +25,7 @@
   <!-- Blog Content Section -->
   <div class="flex-col justify-center mx-auto max-w-[90%] md:max-w-[75%]">
     <!-- Highlight card -->
-    <div
-      class="flex justify-center items-center p-8"
-      [class]="{ 'flex-col': screenWidth < 768 }"
-    >
+    <div class="flex justify-center items-center p-8 flex-col md:flex-row">
       <!-- Latest Post -->
       <app-article-card-large
         class="justify-self-center"
@@ -59,6 +56,9 @@
         <app-article-card [article]="article" />
         }
       </div>
+    </div>
+    <div class="flex w-full text-center p-8">
+      [Sorry, nothing here yet! Give me some time to write some more...]
     </div>
   </div>
   }
