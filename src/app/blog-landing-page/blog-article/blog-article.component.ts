@@ -38,9 +38,6 @@ export class BlogArticleComponent {
             this.text = this.extractByClass('page-body')[0]; // Array of <p> HTML strings
 
             this.loadingComplete = true;
-            console.log('Title:', this.title);
-            console.log('Date:', this.date);
-            console.log('Text:', this.text);
           });
       }
     });
