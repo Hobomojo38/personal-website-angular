@@ -110,3 +110,67 @@ h4 {
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+.page-body {
+    flex-direction: column;
+}
+
+.page-description {
+    width: 0px;
+    height: 0px;
+}
+
+.page-title {
+    font-family: 'Google Sans Code';
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.header-bar {
+    height: 0.5rem;
+    width: 100vw;
+}
+
+/* This is the article container */
+.blog-article article {
+    justify-content: center;
+    align-items: center;
+    max-width: 50vw;
+    margin: 20px;
+    padding: 20px;
+
+    font-size: large;
+}
+
+.blog-article p {
+    margin-bottom: 2rem;
+    font-weight: 100;
+}
+
+.blog-article .small-font p {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+.blog-article .normal-font p {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+.blog-article h1, h2, h3 {
+    font-family: 'Google Sans Code';
+    padding-bottom: 1rem;
+    margin-left: 0.5rem;
+}
+
+.blog-article hr {
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    color: #929292;
+}
+
+/* Hides the header so we can make our own */
+.blog-article header {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
