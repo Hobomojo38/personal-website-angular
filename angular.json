@@ -39,6 +39,20 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/my-app",
+              "baseHref": "./",
+              "optimization": true,
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "styles": [ 
+                "src/styles.css"
+              ],
+
               "budgets": [
                 {
                   "type": "initial",
