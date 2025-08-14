@@ -37,6 +37,8 @@ export class BlogArticleComponent {
             this.date = this.extractByTag('time')[0]; // Array of date strings
             this.text = this.extractByClass('page-body')[0]; // Array of <p> HTML strings
 
+            console.log('Article Loaded:', this.articleId, this.title, this.date);
+
             this.loadingComplete = true;
           });
       }
