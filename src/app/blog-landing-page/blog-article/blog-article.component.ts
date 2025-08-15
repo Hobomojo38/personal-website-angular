@@ -22,14 +22,22 @@ export class BlogArticleComponent {
   loadingComplete = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
+    console.log('BlogArticleComponent initialized');
     this.screenWidth = window.innerWidth;
 
     this.route.paramMap.subscribe(params => {
       this.articleId = params.get('id');
       if (this.articleId) {
-        // Fetch the article content based on the articleId
-        this.http.get(`/articles/${this.articleId}.html`, { responseType: 'text' })
-          .subscribe(content => {
+
+        console.log('Loading article:', this.articleId);
+
+        fetch(`${window.location.origin}/articles/${this.articleId}.html`)
+           .then(res => {
+            if (!res.ok) throw new Error(`Could not load article: ${this.articleId}`);
+            console.log('Article content loaded successfully');
+            return res.text();
+          })
+          .then(content => {
             this.articleContent = content;
 
             // Any additional initialization logic can go here
