@@ -1,17 +1,16 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-blog-article',
   imports: [RouterLink],
   templateUrl: './blog-article.component.html',
-  styleUrls: ['./blog-article.component.css']
+  styleUrl: './blog-article.component.css'
 })
 export class BlogArticleComponent {
   // Read article id from the URL
-
-  screenWidth: number;
 
   articleContent: string | null = null;
   articleId: string | null = null;
@@ -21,36 +20,47 @@ export class BlogArticleComponent {
 
   loadingComplete = false;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, @Inject(PLATFORM_ID) private platformId: Object) {
     console.log('BlogArticleComponent initialized');
-    this.screenWidth = window.innerWidth;
+    console.log('Environment:', environment);
 
     this.route.paramMap.subscribe(params => {
-      this.articleId = params.get('id');
+      console.log('Route parameters:', params);
+      this.articleId = params.get('article_id');
       if (this.articleId) {
 
-        console.log('Loading article:', this.articleId);
+        console.log('Fetching article:', `${environment.apiBaseUrl}/assets/articles/${this.articleId}.html`);
 
-        fetch(`${window.location.origin}/articles/${this.articleId}.html`)
+        fetch(`${environment.apiBaseUrl}/assets/articles/${this.articleId}.html`)
            .then(res => {
+            console.log('Response status:', res.status);
             if (!res.ok) throw new Error(`Could not load article: ${this.articleId}`);
             console.log('Article content loaded successfully');
             return res.text();
           })
           .then(content => {
-            this.articleContent = content;
+            console.log('Article content:', content);
+            this.text = content;
 
-            // Any additional initialization logic can go here
-            this.title = this.extractByClass('page-title')[0]; // Array of <h2> HTML strings
-            this.date = this.extractByTag('time')[0]; // Array of date strings
-            this.text = this.extractByClass('page-body')[0]; // Array of <p> HTML strings
+            // // Any additional initialization logic can go here
+            // console.log('Extracting title from article HTML');
+            // this.title = this.extractByClass('page-title')[0]; // Array of <h2> HTML strings
+            // console.log('Extracting date from article HTML');
+            // this.date = this.extractByTag('time')[0]; // Array of date strings
+            // console.log('Extracting text from article HTML');
+            // this.text = this.extractByClass('page-body')[0]; // Array of <p> HTML strings
 
-            console.log('Article Loaded:', this.articleId, this.title, this.date);
+            console.log('loading complete');
+            debugger;
 
             this.loadingComplete = true;
           });
       }
     });
+  }
+
+  ngOnInit() {
+    console.log("BlogArticleComponent initialized (ngOnInit)");
   }
 
   extractByTag(tagName: string): string[] {
@@ -63,14 +73,13 @@ export class BlogArticleComponent {
 
   extractByClass(className: string): string[] {
     if (!this.articleContent) return [];
+    console.log("Creating temporary div for class extraction");
     const tempDiv = document.createElement('div');
+    console.log("Setting innerHTML for temporary div");
     tempDiv.innerHTML = this.articleContent;
+    console.log({"tempDiv.innerHTML": tempDiv.innerHTML})
     const elements = tempDiv.querySelectorAll(`.${className}`);
+    console.log({"elements": elements})
     return Array.from(elements).map(el => el.innerHTML);
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(_event: any) {
-    this.screenWidth = window.innerWidth;
   }
 }

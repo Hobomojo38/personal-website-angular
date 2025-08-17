@@ -5,17 +5,18 @@ import { BlogArticleComponent } from './blog-landing-page/blog-article/blog-arti
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
+    {path: 'home', title: 'Max Zimmermann', component: HomePageComponent},
+    {path: 'blog/:article_id', component: BlogArticleComponent},
+    {path: 'blog', title: 'Max\'s Blog', component: BlogLandingPageComponent},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'home', component: HomePageComponent},
-    {path: 'blog', component: BlogLandingPageComponent},
-    { path: 'blog/:id', component: BlogArticleComponent },
 
-    // { path:"**", component: ErrorComponent }, // For developing a 404 page, keep it last
+    //{ path:"**", component: HomePageComponent }, // For developing a 404 page, keep it last in this list
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
+      useHash: true,
       scrollPositionRestoration: 'enabled', // scroll to top on nav
       anchorScrolling: 'enabled',           // support #anchor links
       onSameUrlNavigation: 'reload'         // re-run guards/resolvers on same route

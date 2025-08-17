@@ -31,7 +31,7 @@
       [class.translate-x-16]="!text"
       [class.translate-x-0]="text"
     >
-      {{ title }}
+      <!-- {{ title }} -->
     </div>
     <div
       class="md:text-2xl text-lg transition duration-500 ease-in-out delay-500 text-black-300 italic self-end font-light"
@@ -40,18 +40,16 @@
       [class.translate-x-10]="!text"
       [class.translate-x-0]="text"
     >
-      {{ date }}
+      <!-- {{ date }} -->
     </div>
   </div>
 
   <div
     [innerHTML]="text"
-    class="blog-article flex-col font-playfair self-center text-black-50 transition duration-1000 max-w-[80%] md:max-w-[45%] ease-in-out pt-4 md:pt-10 delay-75"
+    class="blog-article flex-col font-playfair self-center text-black-50 transition duration-1000 max-w-[80%] md:max-w-[45%] ease-in-out pt-4 md:pt-10 delay-75 small-font md:normal-font"
     [class]="{
       'translate-x-16 opacity-0': !text,
-      'translate-x-0 opacity-100': text,
-      'small-font': screenWidth < 768,
-      'normal-font': screenWidth >= 768
+      'translate-x-0 opacity-100': text
     }"
   ></div>
   }

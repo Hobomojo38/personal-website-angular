@@ -25,7 +25,7 @@ export class BlogLandingPageComponent {
 
   ngOnInit() {
     // Any additional initialization logic can go here
-    this.http.get<any[]>('/articles/index.json').subscribe(files => {
+    this.http.get<any[]>('assets/articles/index.json').subscribe(files => {
       this.articles.push(...files);
       //console.log('Articles loaded:', this.articles[0]);
     });

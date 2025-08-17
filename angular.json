@@ -42,7 +42,7 @@
           "configurations": {
             "production": {
               "outputPath": "dist/my-app",
-              "baseHref": "./",
+              "baseHref": "/",
               "optimization": true,
               "sourceMap": false,
               "namedChunks": false,
