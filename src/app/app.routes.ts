@@ -22,7 +22,7 @@ export const routes: Routes = [
     path: 'blog', title: 'Max\'s Blog', component: BlogLandingPageComponent
   },
   {
-    path: '', redirectTo: 'test', pathMatch: 'full'
+    path: '', redirectTo: '/home', pathMatch: 'full'
   },
 
     //{ path:"**", component: HomePageComponent }, // For developing a 404 page, keep it last in this list
