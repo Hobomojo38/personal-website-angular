@@ -21,8 +21,7 @@ export class BlogArticleComponent {
   loadingComplete = false;
 
   constructor(private route: ActivatedRoute) {
-    this.loadingComplete = false;
-    
+
     console.log('BlogArticleComponent initialized');
     console.log('Environment:', environment);
 
