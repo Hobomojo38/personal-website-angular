@@ -16,7 +16,11 @@ export class AppComponent {
   
   public showSocialBar = true;
 
-  
+  constructor() {
+    console.log('AppComponent initialized');
+    //print base-href
+    console.log('Base Href:', document.baseURI);
+  }
 
   toggleSocialBar() {
     this.showSocialBar = !this.showSocialBar;
