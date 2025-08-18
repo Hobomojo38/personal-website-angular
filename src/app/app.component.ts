@@ -6,7 +6,7 @@ import { SocialSidebarComponent } from './social-sidebar/social-sidebar.componen
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, FormsModule, SocialSidebarComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -3,15 +3,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { BlogLandingPageComponent } from './blog-landing-page/blog-landing-page.component';
 import { BlogArticleComponent } from './blog-landing-page/blog-article/blog-article.component';
 import { NgModule } from '@angular/core';
-import { Test1Component } from './test1/test1.component';
-import { Test2Component } from './test1/test2/test2.component';
 
 export const routes: Routes = [
-  { path: 'test', component: Test1Component },
-  { path: 'test/:id', component: Test2Component },
-
-
-
   {
     path: 'home', title: 'Max Zimmermann', component: HomePageComponent
   },
@@ -31,7 +24,7 @@ export const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      enableTracing: true,
+      // enableTracing: true, //For debugging
       useHash: true,
       scrollPositionRestoration: 'enabled', // scroll to top on nav
       anchorScrolling: 'enabled',           // support #anchor links

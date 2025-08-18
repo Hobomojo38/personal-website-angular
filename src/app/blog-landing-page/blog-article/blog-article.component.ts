@@ -1,10 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-blog-article',
-  imports: [RouterLink],
+  imports: [RouterLink, NgClass],
   templateUrl: './blog-article.component.html',
   styleUrl: './blog-article.component.css'
 })
@@ -20,6 +21,8 @@ export class BlogArticleComponent {
   loadingComplete = false;
 
   constructor(private route: ActivatedRoute) {
+    this.loadingComplete = false;
+    
     console.log('BlogArticleComponent initialized');
     console.log('Environment:', environment);
 
@@ -27,8 +30,22 @@ export class BlogArticleComponent {
       console.log('Route parameters:', params);
       this.articleId = params.get('article_id');
       if (this.articleId) {
-
         console.log('Fetching article:', `${environment.apiBaseUrl}/assets/articles/${this.articleId}.html`);
+
+        fetch('assets/articles/index.json').then(res => {
+          console.log(res);
+          return res.json();
+        }).then(data => {
+          
+          const articleMeta = data.find((article: any) => article.link === this.articleId);
+          if (articleMeta) {
+            this.title = articleMeta.title;
+            this.date = articleMeta.date;
+            console.log('Article metadata found:', articleMeta);
+          } else {
+            console.error('Article metadata not found for ID:', this.articleId);
+          }
+        });
 
         fetch(`${environment.apiBaseUrl}/assets/articles/${this.articleId}.html`)
            .then(res => {
@@ -41,40 +58,9 @@ export class BlogArticleComponent {
             console.log('Article content:', content);
             this.text = content;
 
-            // // Any additional initialization logic can go here
-            // console.log('Extracting title from article HTML');
-            // this.title = this.extractByClass('page-title')[0]; // Array of <h2> HTML strings
-            // console.log('Extracting date from article HTML');
-            // this.date = this.extractByTag('time')[0]; // Array of date strings
-            // console.log('Extracting text from article HTML');
-            // this.text = this.extractByClass('page-body')[0]; // Array of <p> HTML strings
-
-            console.log('loading complete');
-            //debugger;
-
             this.loadingComplete = true;
           });
       }
     });
-  }
-
-  extractByTag(tagName: string): string[] {
-    if (!this.articleContent) return [];
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = this.articleContent;
-    const elements = tempDiv.querySelectorAll(tagName);
-    return Array.from(elements).map(el => el.innerHTML);
-  }
-
-  extractByClass(className: string): string[] {
-    if (!this.articleContent) return [];
-    console.log("Creating temporary div for class extraction");
-    const tempDiv = document.createElement('div');
-    console.log("Setting innerHTML for temporary div");
-    tempDiv.innerHTML = this.articleContent;
-    console.log({"tempDiv.innerHTML": tempDiv.innerHTML})
-    const elements = tempDiv.querySelectorAll(`.${className}`);
-    console.log({"elements": elements})
-    return Array.from(elements).map(el => el.innerHTML);
   }
 }
