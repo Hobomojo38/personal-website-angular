@@ -1,6 +1,5 @@
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -20,7 +19,7 @@ export class BlogArticleComponent {
 
   loadingComplete = false;
 
-  constructor(private route: ActivatedRoute, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(private route: ActivatedRoute) {
     console.log('BlogArticleComponent initialized');
     console.log('Environment:', environment);
 
@@ -57,10 +56,6 @@ export class BlogArticleComponent {
           });
       }
     });
-  }
-
-  ngOnInit() {
-    console.log("BlogArticleComponent initialized (ngOnInit)");
   }
 
   extractByTag(tagName: string): string[] {

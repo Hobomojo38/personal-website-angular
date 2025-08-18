@@ -4,4 +4,4 @@ import { AppComponent } from './app/app.component';
 import { CommonModule } from '@angular/common';
 
 bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+  .catch((err) => console.error("Angular error:", err));
