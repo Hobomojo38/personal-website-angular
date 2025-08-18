@@ -46,7 +46,7 @@ export class BlogArticleComponent {
           }
         });
 
-        fetch(`${environment.apiBaseUrl}/assets/articles/${this.articleId}.html`)
+        fetch(`assets/articles/${this.articleId}.html`)
            .then(res => {
             console.log('Response status:', res.status);
             if (!res.ok) throw new Error(`Could not load article: ${this.articleId}`);
