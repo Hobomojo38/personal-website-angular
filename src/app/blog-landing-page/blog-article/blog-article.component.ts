@@ -50,7 +50,7 @@ export class BlogArticleComponent {
             // this.text = this.extractByClass('page-body')[0]; // Array of <p> HTML strings
 
             console.log('loading complete');
-            debugger;
+            //debugger;
 
             this.loadingComplete = true;
           });
