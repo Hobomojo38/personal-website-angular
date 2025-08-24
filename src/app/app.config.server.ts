@@ -3,6 +3,7 @@ import { appConfig } from './app.config';
 
 const serverConfig: ApplicationConfig = {
   providers: [
+    // Add Angular providers here if needed
   ]
 };
 
